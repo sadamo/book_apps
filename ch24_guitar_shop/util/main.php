@@ -6,24 +6,25 @@ $doc_root = filter_input(INPUT_SERVER, 'DOCUMENT_ROOT', FILTER_SANITIZE_STRING);
 $uri = filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING);
 $dirs = explode('/', $uri);
 $app_path = '/' . $dirs[1] . '/' . $dirs[2] . '/';
+$base_url = $doc_root . $app_path;
 
 // Set the include path
 set_include_path($doc_root . $app_path);
 
 // Get common code
 require_once('tags.php');
-require_once('../model/database.php');
+require_once($base_url . 'model/database.php');
 
 // Define some common functions
 function display_db_error($error_message) {
     global $app_path;
-    include '../errors/db_error.php';
+    //include 'errors/db_error.php';
     exit;
 }
 
 function display_error($error_message) {
     global $app_path;
-    include '../errors/error.php';
+    //include 'errors/error.php';
     exit;
 }
 

@@ -54,7 +54,7 @@ $fields->addField('city');
 $fields->addField('state');
 $fields->addField('zip');
 $fields->addField('phone');
-var_dump($action);exit;
+
 switch ($action) {
     case 'view_register':
         // Clear user data

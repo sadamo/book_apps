@@ -14,7 +14,7 @@ function is_valid_customer_email($email) {
 
 function is_valid_customer_login($email, $password) {
     global $db;
-    $password = sha1($email . $password);
+    $password = sha1($password);
     $query = '
         SELECT * FROM customers
         WHERE emailAddress = :email AND password = :password';
